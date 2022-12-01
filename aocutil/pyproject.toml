@@ -1,0 +1,12 @@
+[project]
+name = "aoc-util"
+version = "0.1.0"
+requires-python = ">=3.9"
+
+[project.scripts]
+aoc-download-input = "aocutil:download_input"
+aoc-submit = "aocutil:submit_solution"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

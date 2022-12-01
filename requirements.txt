@@ -1,0 +1,2 @@
+-e aocutil
+pytest
