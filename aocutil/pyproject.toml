@@ -6,6 +6,7 @@ requires-python = ">=3.9"
 [project.scripts]
 aoc-download-input = "aocutil:download_input"
 aoc-submit = "aocutil:submit_solution"
+aoc-new-day = "aocutil:create_new_day"
 
 [build-system]
 requires = ["setuptools>=61.0"]
