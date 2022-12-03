@@ -8,8 +8,10 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import shutil
 
 SRC_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 def _get_cookie_header() -> dict[str, str]:
     with open(os.path.join(SRC_DIR, '../.env')) as f:
@@ -111,6 +113,15 @@ def submit_solution() -> int:
         print(contents)
         return 1
 
+
 def create_new_day() -> int:
-    # TODO
-    pass
+    parser = argparse.ArgumentParser()
+    parser.add_argument("dirname")
+    args = parser.parse_args()
+    dir = f"{SRC_DIR}/../day{args.dirname}"
+
+    os.mkdir(dir)
+
+    open(f"{dir}/__init__.py", "w").close()
+    shutil.copyfile(f"{SRC_DIR}/default_file.txt", f"{dir}/part1.py")
+    shutil.copyfile(f"{SRC_DIR}/default_file.txt", f"{dir}/part2.py")
